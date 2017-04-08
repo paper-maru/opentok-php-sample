@@ -69,6 +69,19 @@ $app->container->singleton('sessionId', function() use ($app) {
     return $session->getSessionId();
 });
 
+$app->get('/debug', 'cors', function () use ($app) {
+
+    $token = $app->opentok->generateToken($app->sessionId);
+
+    $responseData = array(
+        'apiKey' => $app->apiKey,
+        'mode' => $app->config('mode')
+    );
+
+    $app->response->headers->set('Content-Type', 'application/json');
+    echo json_encode($responseData);
+});
+
 // Route to return the SessionID and token as a json
 $app->get('/session', 'cors', function () use ($app) {
 
