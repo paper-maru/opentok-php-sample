@@ -29,6 +29,7 @@ if (!(getenv('API_KEY') && getenv('API_SECRET'))) {
 
 // Instantiate a Slim app
 $app = new Slim(array(
+    'mode' => getenv('SLIM_MODE'),
     'log.enabled' => true,
     'templates.path' => '../templates'
 ));
