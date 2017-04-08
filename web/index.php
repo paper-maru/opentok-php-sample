@@ -29,10 +29,11 @@ if (!(getenv('API_KEY') && getenv('API_SECRET'))) {
 
 // Instantiate a Slim app
 $app = new Slim(array(
-    'mode' => getenv('SLIM_MODE'),
     'log.enabled' => true,
     'templates.path' => '../templates'
 ));
+
+$app->config('mode', getenv('SLIM_MODE'));
 
 // Intialize storage interface wrapper, store it in a singleton
 $app->container->singleton('storage', function() use ($app) {
