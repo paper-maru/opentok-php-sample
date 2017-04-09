@@ -1,11 +1,99 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "661126eb304f449da13ff85700d78ade",
+    "content-hash": "08e6572da92e6cfb7c32d604ba121b7b",
     "packages": [
+        {
+            "name": "aoberoi/json-works",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aoberoi/json-works.git",
+                "reference": "28eecbe8bcf8ea08f1115f1968ada5a6de25b854"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aoberoi/json-works/zipball/28eecbe8bcf8ea08f1115f1968ada5a6de25b854",
+                "reference": "28eecbe8bcf8ea08f1115f1968ada5a6de25b854",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JohnStevenson\\JsonWorks": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Stevenson",
+                    "email": "john-stevenson@blueyonder.co.uk"
+                },
+                {
+                    "name": "Ankur Oberoi",
+                    "email": "aoberoi@gmail.com"
+                }
+            ],
+            "description": "Create, edit, query and validate json",
+            "homepage": "http://github.com/aoberoi/json-works",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2015-04-29T05:52:18+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1",
+                "reference": "fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2015-07-22T18:31:08+00:00"
+        },
         {
             "name": "guzzle/guzzle",
             "version": "v3.9.2",
@@ -96,7 +184,8 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-11 04:32:36"
+            "abandoned": "guzzlehttp/guzzle",
+            "time": "2014-08-11T04:32:36+00:00"
         },
         {
             "name": "icanboogie/storage",
@@ -139,7 +228,7 @@
                 "cache",
                 "storage"
             ],
-            "time": "2015-01-13 13:32:24"
+            "time": "2015-01-13T13:32:24+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -205,25 +294,26 @@
                 "json",
                 "schema"
             ],
-            "time": "2014-08-25 02:48:14"
+            "time": "2014-08-25T02:48:14+00:00"
         },
         {
             "name": "opentok/opentok",
-            "version": "v2.2.2",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/opentok/Opentok-PHP-SDK.git",
-                "reference": "37ba39703e2945febf238d6752853ff96079312a"
+                "url": "https://github.com/opentok/OpenTok-PHP-SDK.git",
+                "reference": "863092878aedeea3d259fe945fefe80b7644e2c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opentok/Opentok-PHP-SDK/zipball/37ba39703e2945febf238d6752853ff96079312a",
-                "reference": "37ba39703e2945febf238d6752853ff96079312a",
+                "url": "https://api.github.com/repos/opentok/OpenTok-PHP-SDK/zipball/863092878aedeea3d259fe945fefe80b7644e2c8",
+                "reference": "863092878aedeea3d259fe945fefe80b7644e2c8",
                 "shasum": ""
             },
             "require": {
+                "aoberoi/json-works": "~1.0",
+                "firebase/php-jwt": "^3.0",
                 "guzzle/guzzle": "~3.7",
-                "justinrainbow/json-schema": "~1.3",
                 "php": ">=5.0.0"
             },
             "require-dev": {
@@ -261,19 +351,19 @@
                 "streaming",
                 "video"
             ],
-            "time": "2014-06-20 05:34:33"
+            "time": "2016-09-01T00:30:51+00:00"
         },
         {
             "name": "slim/slim",
             "version": "2.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/codeguy/Slim.git",
+                "url": "https://github.com/slimphp/Slim.git",
                 "reference": "04958a10ed95bc7bc97568e573877d4f9b62db48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeguy/Slim/zipball/04958a10ed95bc7bc97568e573877d4f9b62db48",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/04958a10ed95bc7bc97568e573877d4f9b62db48",
                 "reference": "04958a10ed95bc7bc97568e573877d4f9b62db48",
                 "shasum": ""
             },
@@ -307,7 +397,7 @@
                 "rest",
                 "router"
             ],
-            "time": "2014-12-09 19:59:29"
+            "time": "2014-12-09T19:59:29+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -315,12 +405,12 @@
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher.git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
                 "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f75989f3ab2743a82fe0b03ded2598a2b1546813",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/f75989f3ab2743a82fe0b03ded2598a2b1546813",
                 "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813",
                 "shasum": ""
             },
@@ -365,7 +455,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-01 16:10:57"
+            "time": "2015-02-01T16:10:57+00:00"
         }
     ],
     "packages-dev": [],
