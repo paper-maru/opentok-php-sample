@@ -29,8 +29,8 @@ if (!(getenv('API_KEY') && getenv('API_SECRET'))) {
 
 // Instantiate a Slim app
 $app = new Slim(array(
-    'log.enabled' => true,
-    'templates.path' => '../templates'
+    'log.enabled' => true
+    //'templates.path' => '../templates'
 ));
 
 $app->config('mode', getenv('SLIM_MODE'));
@@ -120,6 +120,14 @@ $app->post('/broadcast/stop', 'cors', function () use ($app) {
     $app->response->headers->set('Content-Type', 'application/json');
 
     echo json_encode($broadcast->jsonSerialize());
+});
+
+$app->get('/hls', 'cors', function () use ($app) {
+    $url = $app->request()->params('url');
+    $availableAt = $app->request()->params('availableAt');
+    $data ='{"url":"' . $url . '","availableAt":"' . $availableAt . '"}';
+
+    $app->render('hls.php', array('data' => $data));
 });
 
 
