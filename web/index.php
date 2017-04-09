@@ -84,49 +84,42 @@ $app->get('/debug', 'cors', function () use ($app) {
     echo json_encode($responseData);
 });
 
-// Route to return the SessionID and token as a json
-$app->get('/session', 'cors', function () use ($app) {
+$app->get('/session/:role', 'cors', function ($role) use ($app) {
 
-    $token = $app->opentok->generateToken($app->sessionId);
+    $token = $app->opentok->generateToken($app->sessionId, array('role' => $role));
 
     $responseData = array(
         'apiKey' => $app->apiKey,
         'sessionId' => $app->sessionId,
-        'token'=>$token
+        'token'=> $token
     );
 
     $app->response->headers->set('Content-Type', 'application/json');
     echo json_encode($responseData);
 });
 
-// Start Archiving and return the Archive ID
-$app->post('/start/:sessionId', 'cors', function ($sessionId) use ($app) {
-    $archive = $app->opentok->startArchive($sessionId, 'Getting Started Sample Archive');
+$app->post('/broadcast/start', 'cors', function () use ($app) {
+    $json = $app->request->getBody();
+    $data = json_decode($json, true);
+    $sessionId = $data["sessionId"];
+
+    $broadcast = $app->opentok->startBroadcast($sessionId);
+
     $app->response->headers->set('Content-Type', 'application/json');
 
-    $responseData = array('archive' => $archive);
-    echo json_encode($responseData);
+    echo json_encode($broadcast->jsonSerialize());
 });
 
-// Stop Archiving and return the Archive ID
-$app->post('/stop/:archiveId', 'cors', function ($archiveId) use ($app) {
-    $archive = $app->opentok->stopArchive($archiveId);
+$app->post('/broadcast/stop', 'cors', function () use ($app) {
+    $json = $app->request->getBody();
+    $data = json_decode($json, true);
+    $broadcastId = $data["broadcastId"];
+
+    $broadcast = $app->opentok->stopBroadcast($broadcastId);
+
     $app->response->headers->set('Content-Type', 'application/json');
 
-    $responseData = array('archive' => $archive);
-    echo json_encode($responseData);
-});
-
-
-// Download the archive
-$app->get('/view/:archiveId', 'cors', function ($archiveId) use ($app) {
-    $archive = $app->opentok->getArchive($archiveId);
-
-    if ($archive->status=='available')
-        $app->redirect($archive->url);
-    else {
-        $app->render('view.php');
-    }
+    echo json_encode($broadcast->jsonSerialize());
 });
 
 
