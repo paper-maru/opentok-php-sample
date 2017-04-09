@@ -122,6 +122,14 @@ $app->post('/broadcast/stop', 'cors', function () use ($app) {
     echo json_encode($broadcast->jsonSerialize());
 });
 
+$app->get('/broadcast/:broadcastId', 'cors', function ($broadcastId) use ($app) {
+    $broadcast = $app->opentok->getBroadcast($broadcastId);
+
+    $app->response->headers->set('Content-Type', 'application/json');
+
+    echo json_encode($broadcast->jsonSerialize());
+});
+
 $app->get('/hls', 'cors', function () use ($app) {
     $url = $app->request()->params('url');
     $availableAt = $app->request()->params('availableAt');
