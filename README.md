@@ -1,4 +1,4 @@
-OpenTok Broadcast Sample
+# OpenTok Broadcast Sample
 
 forked from [opentok/learning-opentok-php](https://github.com/opentok/learning-opentok-php)
 
